@@ -46,6 +46,8 @@ bot.on("message", async message => {
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor(aqua)
         .setDescription(`My Prefix is ${botconfig.prefix}`);
+
+        message.channel.send(prefixEmbed).then(msg => {msg.delete(10000)});
     }
     let coinAmt = Math.floor(Math.random() * 15) + 1;
     let baseAmt = Math.floor(Math.random() * 15) + 1;
