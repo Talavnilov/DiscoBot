@@ -30,7 +30,7 @@ bot.on("ready", async () => {
     console.log(`Bot Client ID:`, bot.user.id);
     console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
     console.log(`Servers bot is on: `, bot.guilds.map(g => g.name).join(","));
-    bot.user.setActivity("DiscosBot v2", {type: "WATCHING"})
+    bot.user.setActivity(`DiscosBot ${botconfig.version}`, {type: "WATCHING"})
     
     //bot.user.setActivity("DiscosBot v1")
 });
