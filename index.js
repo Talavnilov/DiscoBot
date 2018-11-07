@@ -42,7 +42,7 @@ bot.on("message", async message => {
             coins: 0
         };
     }
-    if(`${bot.user.username}`){
+    if(bot.user.username){
         let prefixEmbed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor(aqua)
