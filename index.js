@@ -41,7 +41,12 @@ bot.on("message", async message => {
             coins: 0
         };
     }
-
+    if(cmd === `${bot.user.username}`){
+        let prefixEmbed = new Discord.RichEmbed()
+        .setAuthor(message.author.username, message.author.displayAvatarURL)
+        .setColor(aqua)
+        .setDescription(`My Prefix is ${botconfig.prefix}`);
+    }
     let coinAmt = Math.floor(Math.random() * 15) + 1;
     let baseAmt = Math.floor(Math.random() * 15) + 1;
 
