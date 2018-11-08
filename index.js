@@ -39,7 +39,7 @@ bot.on('message', function(message) {
             console.log('[' + message.guild.name + '][#' + message.channel.name + '][MSG] ' + message.author.username +
                 '#' + message.author.discriminator + ': ' + formatConsoleMessage(message));
         else if (message.channel.type == 'dm')
-        let dmEmbed = new Discord.RichEmbed()
+        dmEmbed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor(aqua)
         .setDescription("Beep boop! Sorry, I can\'t log group messages. Try inviting me to your server!\n" +
