@@ -33,27 +33,36 @@ bot.on("ready", async () => {
     
     //bot.user.setActivity("DiscosBot v1")
 });
-bot.on("channelCreate", async channel => {
-    let logs = message.guild.channels.find(`name`, "modlogs");
-	if (!logs) return console.log("Can't find modlogs channel.");
-	const cembed = new Discord.RichEmbed()
-		.setTitle("Channel Created")
-		.setColor(aqua)
-		.setDescription(`A **${channel.type} channel**, by the name of **${channel.name}**, was just created!`)
-		.setTimestamp(new Date());
-	logs.send(cembed)
-});
+client.on('channelCreate', async channel => {
 
-bot.on("channelDelete", async channel => {
-    let logs = message.guild.channels.find(`name`, "modlogs");
-	if (!logs) return console.log("Can't find modlogs channel.");
-	const cembed = new Discord.RichEmbed()
-		.setTitle("Channel Deleted")
-		.setColor(aqua)
-		.setDescription(`A **${channel.type} channel**, by the name of **${channel.name}**, was just deleted!`)
-		.setTimestamp(new Date())
-	logs.send(cembed)
-});
+    console.log(`${channel.name} has been created.`);
+  
+  if (channel.type != 'text') return;
+  let cChannel = channel.guild.channels.find('name', 'modlogs');
+  if(!cChannel)
+  let channelEmbed = new Discord.RichEmbed()
+  .setDescription("Unable to Find Channel")
+  .setColor("#00ddff")
+  .addField("Couldn't Find Modlogs Channel!", `Make Sure A Modlog Channel is Made!`);
+  if(!cChannel) return message.channel.send(channelEmbed);
+  cChannel.send(`The channel ${channel} has been created`);
+  });
+
+  client.on('channelDelete', async channel => {
+
+    console.log(`${channel.name} has been created.`);
+  
+  if (channel.type != 'text') return;
+    let sChannel = channel.guild.channels.find('name', 'modlogs');
+    if(!sChannel)
+    let modChannel = new Discord.RichEmbed()
+    .setDescription("Unable to Find Channel")
+    .setColor("#00ddff")
+    .addField("Couldn't Find Modlogs Channel!", `Make Sure A Modlog Channel is Made!`);
+    if(!sChannel) return message.channel.send(modChannel);
+    sChannel.send(`The channel ${channel} has been created`);
+  
+  });
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
