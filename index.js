@@ -35,7 +35,7 @@ bot.on("ready", async () => {
 });
 bot.on('message', function(message) {
      if (message.channel.type == 'dm')
-        dmEmbed = new Discord.RichEmbed()
+        let dmEmbed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor(aqua)
         .setDescription("Beep boop! Sorry, I can\'t log DM messages. Try inviting me to your server!\n" +
