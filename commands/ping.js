@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     let botPing = new Discord.RichEmbed()
     .setDescription("Ping")
     .setColor("#00ddff")
-    .setDescription(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+    .setDescription(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
     m.edit(botPing)
     
 }
