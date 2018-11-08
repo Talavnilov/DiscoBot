@@ -7,11 +7,11 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("Pinging...");
     const m = await message.channel.send(botembed)
 
-    let botembed = new Discord.RichEmbed()
+    let botPing = new Discord.RichEmbed()
     .setDescription("Ping")
     .setColor("#00ddff")
     .setDescription(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
-    m.edit(embedEdit)
+    m.edit(botPing)
     
 }
 module.exports.help = {
