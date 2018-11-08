@@ -44,7 +44,7 @@ bot.on('message', function(message) {
         .setColor(aqua)
         .setDescription("Beep boop! Sorry, I can\'t log group messages. Try inviting me to your server!\n" +
         "https://discordapp.com/oauth2/authorize?&client_id=509014217219768321&scope=bot&permissions=8");
-            return message.channel.send(dmEmbed);
+        message.channel.send(dmEmbed);
     }
 });
 bot.on("message", async message => {
