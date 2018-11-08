@@ -39,10 +39,10 @@ bot.on('message', function(message) {
             console.log('[' + message.guild.name + '][#' + message.channel.name + '][MSG] ' + message.author.username +
                 '#' + message.author.discriminator + ': ' + formatConsoleMessage(message));
         else if (message.channel.type == 'dm')
-            message.channel.sendMessage('Beep boop! Sorry, I can\'t respond to direct messages. Try inviting me to your ' +
+            message.channel.send('Beep boop! Sorry, I can\'t respond to direct messages. Try inviting me to your ' +
                 'server!\nhttps://discordapp.com/oauth2/authorize?&client_id=509014217219768321&scope=bot&permissions=8');
         else if (message.channel.type == 'group')
-            message.channel.sendMessage('Beep boop! Sorry, I can\'t log group messages. Try inviting me to your server!\n' +
+            message.channel.send('Beep boop! Sorry, I can\'t log group messages. Try inviting me to your server!\n' +
                 'https://discordapp.com/oauth2/authorize?&client_id=509014217219768321&scope=bot&permissions=8');
     }
 });
