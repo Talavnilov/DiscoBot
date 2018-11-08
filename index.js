@@ -33,36 +33,19 @@ bot.on("ready", async () => {
     
     //bot.user.setActivity("DiscosBot v1")
 });
-client.on('channelCreate', async channel => {
-
-    console.log(`${channel.name} has been created.`);
-  
-  if (channel.type != 'text') return;
-  let cChannel = channel.guild.channels.find('name', 'modlogs');
-  if(!cChannel)
-  let channelEmbed = new Discord.RichEmbed()
-  .setDescription("Unable to Find Channel")
-  .setColor("#00ddff")
-  .addField("Couldn't Find Modlogs Channel!", `Make Sure A Modlog Channel is Made!`);
-  if(!cChannel) return message.channel.send(channelEmbed);
-  cChannel.send(`The channel ${channel} has been created`);
-  });
-
-  client.on('channelDelete', async channel => {
-
-    console.log(`${channel.name} has been created.`);
-  
-  if (channel.type != 'text') return;
-    let sChannel = channel.guild.channels.find('name', 'modlogs');
-    if(!sChannel)
-    let modChannel = new Discord.RichEmbed()
-    .setDescription("Unable to Find Channel")
-    .setColor("#00ddff")
-    .addField("Couldn't Find Modlogs Channel!", `Make Sure A Modlog Channel is Made!`);
-    if(!sChannel) return message.channel.send(modChannel);
-    sChannel.send(`The channel ${channel} has been created`);
-  
-  });
+bot.on('message', function(message) {
+    if(message.author.id != bot.user.id) {
+        if (message.channel.type == 'text')
+            console.log('[' + message.guild.name + '][#' + message.channel.name + '][MSG] ' + message.author.username +
+                '#' + message.author.discriminator + ': ' + formatConsoleMessage(message));
+        else if (message.channel.type == 'dm')
+            message.channel.sendMessage('Beep boop! Sorry, I can\'t respond to direct messages. Try inviting me to your ' +
+                'server!\nhttps://discordapp.com/oauth2/authorize?&client_id=509014217219768321&scope=bot&permissions=8');
+        else if (message.channel.type == 'group')
+            message.channel.sendMessage('Beep boop! Sorry, I can\'t log group messages. Try inviting me to your server!\n' +
+                'https://discordapp.com/oauth2/authorize?&client_id=509014217219768321&scope=bot&permissions=8');
+    }
+});
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
