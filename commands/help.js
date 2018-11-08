@@ -1,6 +1,9 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
+    let helpSent = new Discord.RichEmbed()
+    .setColor("#00ddff")
+    .setDescription(`✔ Sent you my help menu, please check your PMs!`);
     let botembed = new Discord.RichEmbed()
     .setTitle("Bot Help")
     .setColor("#00ddff")

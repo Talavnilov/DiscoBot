@@ -33,6 +33,27 @@ bot.on("ready", async () => {
     
     //bot.user.setActivity("DiscosBot v1")
 });
+bot.on("channelCreate", async channel => {
+	var logs = channel.guild.channels.find(c => c.name === 'modlogs');
+	if (!logs) return console.log("Can't find modlogs channel.");
+	const cembed = new Discord.RichEmbed()
+		.setTitle("Channel Created")
+		.setColor(aqua)
+		.setDescription(`A **${channel.type} channel**, by the name of **${channel.name}**, was just created!`)
+		.setTimestamp(new Date());
+	logs.send(cembed)
+});
+
+bot.on("channelDelete", async channel => {
+	var logs = channel.guild.channels.find(c => c.name === 'modlogs');
+	if (!logs) return console.log("Can't find modlogs channel.");
+	const cembed = new Discord.RichEmbed()
+		.setTitle("Channel Deleted")
+		.setColor(aqua)
+		.setDescription(`A **${channel.type} channel**, by the name of **${channel.name}**, was just deleted!`)
+		.setTimestamp(new Date())
+	logs.send(cembed)
+});
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
