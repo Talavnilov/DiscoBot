@@ -34,7 +34,7 @@ bot.on("ready", async () => {
     //bot.user.setActivity("DiscosBot v1")
 });
 bot.on("channelCreate", async channel => {
-	var logs = channel.guild.channels.find(c => c.name === 'modlogs');
+	var logs = channel.guild.channel.find(c => c.name === 'modlogs');
 	if (!logs) return console.log("Can't find modlogs channel.");
 	const cembed = new Discord.RichEmbed()
 		.setTitle("Channel Created")
@@ -45,7 +45,7 @@ bot.on("channelCreate", async channel => {
 });
 
 bot.on("channelDelete", async channel => {
-	var logs = channel.guild.channels.find(c => c.name === 'modlogs');
+	var logs = channel.guild.channel.find(c => c.name === 'modlogs');
 	if (!logs) return console.log("Can't find modlogs channel.");
 	const cembed = new Discord.RichEmbed()
 		.setTitle("Channel Deleted")
