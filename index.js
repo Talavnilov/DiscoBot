@@ -41,6 +41,7 @@ bot.on('message', function(message) {
         .setDescription("Beep boop! Sorry, I can\'t log DM messages. Try inviting me to your server!\n" +
         "https://discordapp.com/oauth2/authorize?&client_id=509014217219768321&scope=bot&permissions=8");
         message.channel.send(dmEmbed);
+        if(!message.channel.type == 'dm') return;
 });
 bot.on("message", async message => {
     if(message.author.bot) return;
