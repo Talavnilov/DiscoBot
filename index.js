@@ -39,11 +39,12 @@ bot.on('message', function(message) {
             console.log('[' + message.guild.name + '][#' + message.channel.name + '][MSG] ' + message.author.username +
                 '#' + message.author.discriminator + ': ' + formatConsoleMessage(message));
         else if (message.channel.type == 'dm')
-            message.channel.send('Beep boop! Sorry, I can\'t respond to direct messages. Try inviting me to your ' +
-                'server!\nhttps://discordapp.com/oauth2/authorize?&client_id=509014217219768321&scope=bot&permissions=8');
-        else if (message.channel.type == 'group')
-            message.channel.send('Beep boop! Sorry, I can\'t log group messages. Try inviting me to your server!\n' +
-                'https://discordapp.com/oauth2/authorize?&client_id=509014217219768321&scope=bot&permissions=8');
+        let dmEmbed = new Discord.RichEmbed()
+        .setAuthor(message.author.username, message.author.displayAvatarURL)
+        .setColor(aqua)
+        .setDescription("Beep boop! Sorry, I can\'t log group messages. Try inviting me to your server!\n" +
+        "https://discordapp.com/oauth2/authorize?&client_id=509014217219768321&scope=bot&permissions=8");
+            return message.channel.send(dmEmbed);
     }
 });
 bot.on("message", async message => {
@@ -75,7 +76,7 @@ bot.on("message", async message => {
         let coinEmbed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor("#00ddff")
-        .addField(`+${coinAmt} coin`, "has been added to your balance.");
+        .setDescription(`+${coinAmt} coin(s) has been added to your balance.`);
 
         message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
     }
