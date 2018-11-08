@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor("#00ddff")
     .setDescription(`✔ Sent you my help menu, please check your PMs!`);
     message.channel.send(helpSent);
-    
+    message.delete().catch(O_o=>{});
     let botembed = new Discord.RichEmbed()
     .setTitle("Bot Help")
     .setColor("#00ddff")
